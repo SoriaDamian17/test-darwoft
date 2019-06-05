@@ -1,0 +1,104 @@
+
+app-modal {
+  display: none;
+
+  .box-container {
+    background-color: $ui-grayscale-black-80;
+    height: 100%;
+    left: 0;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+  .dialog {
+    background: $ui-grayscale-white;
+    border-radius: 5px;
+    left: 50%;
+    margin: -200px 0 0 -200px;
+    max-width: 360px;
+    position: relative;
+    top: 45%;
+    width: 100%;
+
+    &--header {
+      height: 48px;
+      text-align: right;
+
+      .close {
+        cursor: pointer;
+        float: right;
+        position: relative;
+        right: 24px;
+        top: 20px;
+        width: 30px;
+      }
+    }
+
+    &--footer {
+      clear: both;
+      height: 48px;
+    }
+
+    .card {
+      background: $ui-grayscale-white;
+      border: 0;
+      padding: 22px 32px 0 32px;
+
+      &--title {
+        color: $ui-grayscale-black-80;
+        font-size: 28px;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      &--body {
+
+        .clearfix {
+          clear: both;
+          width: 100%;
+        }
+
+        .item {
+          float: left;
+          font-family: "Roboto";
+          font-size: 16px;
+          line-height: 24px;
+          margin: 24px 0 0 0;
+
+          strong {
+            font-weight: bold;
+          }
+
+          p {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+
+  app-modal {
+
+    .dialog {
+      margin: 24% auto;
+      position: initial;
+      width: 80%;
+
+      .item p {
+        width: 100%;
+      }
+
+    }
+
+  }
+
+}
