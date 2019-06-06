@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { NotFoundComponent } from './views/not-found/not-found.component';
 import { MoviesService } from './shared/services/movies.service';
 import { HttpClientModule } from '@angular/common/http';
+import { Auth0Service } from './shared/services/auth0.service';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [MoviesService],
+  providers: [Auth0Service, MoviesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
