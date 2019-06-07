@@ -9,15 +9,23 @@ import { MOVIE } from '../models/movie.model';
 export class MoviesService {
 
   page: number;
+  apiUrl: string;
 
   constructor(
     private httpClient: HttpClient
   ) {
     this.page = 1;
+    this.apiUrl = `${CONFIG.apiUrl}?apikey=${CONFIG.apikey}`;
   }
 
-  getMovies() {
-    return this.httpClient.get<MOVIE>(`${CONFIG.apiUrl}?apikey=${CONFIG.apikey}&s=batman&page=${this.page}`);
+  getMovies(page: number = 0) {
+    this.page = (page > 0 ? page : this.page);
+
+    return this.httpClient.get<MOVIE>(`${this.apiUrl}&s=batman&page=${this.page}`);
   }
 
+  search(search: string) {
+    console.log(`${this.apiUrl}&s=${search}`);
+    return this.httpClient.get<MOVIE>(`${this.apiUrl}&s=${search}`);
+  }
 }
