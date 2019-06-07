@@ -24,6 +24,6 @@ import { RouterModule } from '@angular/router';
     CardComponent,
     IsotopeComponent,
     PaginationComponent
-  ],
+  ]
 })
 export class SharedModule { }
