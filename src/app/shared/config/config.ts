@@ -11,11 +11,3 @@ export const CONFIG = {
     scope: 'openid'
   }
 };
-
-export const TOASTCONFIG = {
-    timeOut: 3000,
-    onActivateTick: true,
-    positionClass: 'toast-top-center'
-};
-
-export enum Type {'Success', 'Info', 'Warning', 'Error', 'Hidden'}

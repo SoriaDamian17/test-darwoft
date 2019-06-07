@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { i18n } from 'src/app/shared/config/i18n';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NotificationService } from 'src/app/shared/services/notification.service';
-import { Type } from 'src/app/shared/config/config';
 
 @Component({
   selector: 'app-contact',
@@ -43,9 +42,9 @@ export class ContactComponent implements OnInit {
    */
   sendMessage() {
     if (this.formGroup.valid) {
-        this.notificationService.showNotification(Type.Success, 'Gracias por enviarnos su consulta.');
+        this.notificationService.showSuccess('Gracias por enviarnos su consulta.');
     } else {
-        this.notificationService.showNotification(Type.Error, 'Todos los campos son requeridos.');
+        this.notificationService.showError('Todos los campos son requeridos.');
     }
   }
 }
