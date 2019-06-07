@@ -22,7 +22,11 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
     this.buildForm();
   }
-
+  /**
+   * Create form contact
+   *
+   * @memberof ContactComponent
+   */
   buildForm() {
     this.formGroup = this.formBuilder.group({
       firstname: ['', Validators.required],
@@ -32,15 +36,16 @@ export class ContactComponent implements OnInit {
       message: ['', Validators.required]
     });
   }
-
+  /**
+   * Submit Form
+   *
+   * @memberof ContactComponent
+   */
   sendMessage() {
-    console.log(this.formGroup.value);
     if (this.formGroup.valid) {
-      console.log('Success form');
-      this.notificationService.showNotification(Type.Success, 'Gracias por enviarnos su consulta.');
+        this.notificationService.showNotification(Type.Success, 'Gracias por enviarnos su consulta.');
     } else {
-      console.log('error form');
-      this.notificationService.showNotification(Type.Error, 'Todos los campos son requeridos.');
+        this.notificationService.showNotification(Type.Error, 'Todos los campos son requeridos.');
     }
   }
 }

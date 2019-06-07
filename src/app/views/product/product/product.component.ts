@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesService } from 'src/app/shared/services/movies.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent implements OnInit, OnDestroy {
 
+  private subscription: Subscription;
   id: string;
   item: any = [];
 
@@ -17,7 +19,11 @@ export class ProductComponent implements OnInit {
     private movieService: MoviesService,
     private router: Router
   ) { }
-
+  /**
+   * Get list detail by id movie
+   * @params :id
+   * @memberof ProductComponent
+   */
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     console.log(this.id);
@@ -26,5 +32,12 @@ export class ProductComponent implements OnInit {
       this.item.push(data);
     });
   }
-
+  /**
+   * unsuscribe del movieService
+   *
+   * @memberof ProductComponent
+   */
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }
