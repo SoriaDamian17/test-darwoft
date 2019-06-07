@@ -1,0 +1,18 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row product-wrap">
+    <div class="col-md-12">
+      <h1 class="__title text-center mt-5">Product Catalog</h1>
+    </div>
+    <div class="col-md-12">
+      <app-isotope (genero)="filterMovies($event)"></app-isotope>
+    </div>
+    <div class="col-md-3" *ngFor="let item of items[0];" style="width: 30rem;">
+      <app-card [item]="item" (emitViewDetail)="ViewDetail($event)"></app-card>
+    </div>
+    <div class="col-md-12">
+      <app-pagination (page)="goPage($event)"></app-pagination>
+    </div>
+  </div>
+</div>
+

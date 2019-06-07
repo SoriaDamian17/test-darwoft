@@ -1,0 +1,21 @@
+<app-header></app-header>
+<div class="container">
+  <div class="product mt-5">
+    <div class="row justify-content-center mx-auto">
+      <div class="col-12 col-xl-8">
+        <div class="col">
+          <img [src]="item[0].Poster" [alt]="item[0].Title" />
+        </div>
+        <div class="col product-detail">
+          <h4 class="_title">{{item[0].Title}}</h4>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-12 text-center">
+        <button type="button" class="btn btn-danger btn-lg px-md-5 mr-3">Description</button>
+        <button type="button" class="btn btn-outline-danger btn-lg px-md-5">Review</button>
+      </div>
+    </div>
+  </div>
+</div>
