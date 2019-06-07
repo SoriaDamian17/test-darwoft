@@ -34,12 +34,9 @@ export class ContactComponent implements OnInit {
   }
 
   sendMessage() {
-    console.log(this.formGroup.value);
     if (this.formGroup.valid) {
-      console.log('Success form');
       this.notificationService.showNotification(Type.Success, 'Gracias por enviarnos su consulta.');
     } else {
-      console.log('error form');
       this.notificationService.showNotification(Type.Error, 'Todos los campos son requeridos.');
     }
   }
