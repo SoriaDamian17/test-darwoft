@@ -11,6 +11,8 @@ import { Auth0Service } from './shared/services/auth0.service';
 import { FormsModule } from '@angular/forms';
 
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { NgxLoadingModule } from 'ngx-loading';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,8 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
     BrowserAnimationsModule,
     FormsModule,
     ToastrModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    NgxLoadingModule.forRoot({})
   ],
   providers: [Auth0Service, ToastrService, MoviesService],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesService } from 'src/app/shared/services/movies.service';
-import { Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-list-product',
@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
 })
 export class ListProductComponent implements OnInit {
 
+  loading = new Subject();
   items: any = [];
   page: number;
 
@@ -26,6 +27,7 @@ export class ListProductComponent implements OnInit {
     });
     this.movieService.getMovies(this.page).subscribe((data: any) => {
       this.items.push(data.Search);
+      this.loading.next(false);
       console.log(data.Search);
     });
   }
