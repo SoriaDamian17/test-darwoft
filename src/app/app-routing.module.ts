@@ -1,27 +1,25 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
+import { NotFoundComponent } from './views/not-found/not-found.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: AppComponent,
-    children: [
-     {
-       path: 'home',
-       loadChildren: './views/home/home.module#HomeModule'
-     },
-     {
-      path: 'product',
-      loadChildren: './views/product/product.module#ProductModule'
-     },
-     {
-       path: 'contact',
-       loadChildren: './views/contact/contact.module#ContactModule'
-     }
-    ]
+    loadChildren: './views/home/home.module#HomeModule',
   },
-  { path: '**', redirectTo: '/home', pathMatch: 'full'}
+  {
+    path: 'product',
+    loadChildren: './views/product/product.module#ProductModule'
+  },
+  {
+    path: 'contact',
+    loadChildren: './views/contact/contact.module#ContactModule'
+  },
+  {
+    path: 'not-found',
+    component: NotFoundComponent
+  },
+  { path: '**', redirectTo: '/not-found', pathMatch: 'full'}
 ];
 
 @NgModule({
