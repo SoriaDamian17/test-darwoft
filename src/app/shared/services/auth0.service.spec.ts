@@ -1,12 +1,28 @@
 import { TestBed } from '@angular/core/testing';
 
 import { Auth0Service } from './auth0.service';
+import { EMPTY } from 'rxjs';
 
 describe('Auth0Service', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+
+  let service: Auth0Service;
+
+  beforeEach(() => {
+    service = new Auth0Service(null);
+  });
 
   it('should be created', () => {
-    const service: Auth0Service = TestBed.get(Auth0Service);
     expect(service).toBeTruthy();
   });
+
+  it('Should call login auth0', () => {
+    const spy = spyOn(service, 'login').and.callFake(() => {
+      return EMPTY;
+    });
+
+    service.login();
+
+    expect(spy).toHaveBeenCalled();
+  });
+
 });
