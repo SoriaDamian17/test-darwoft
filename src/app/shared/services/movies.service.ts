@@ -25,7 +25,7 @@ export class MoviesService {
   }
 
   getMovie(id: string) {
-    return this.httpClient.get<MOVIE>(`${this.apiUrl}&i=${id}`);
+    return this.httpClient.get<MOVIE>(`${this.apiUrl}&i=${id}&plot=full`);
   }
 
   search(search: string) {

@@ -8,9 +8,8 @@ import { Subscription } from 'rxjs';
   templateUrl: './list-product.component.html',
   styleUrls: ['./list-product.component.scss']
 })
-export class ListProductComponent implements OnInit, OnDestroy {
+export class ListProductComponent implements OnInit {
 
-  private subscription: Subscription;
   items: any = [];
   page: number;
 
@@ -29,14 +28,6 @@ export class ListProductComponent implements OnInit, OnDestroy {
       this.items.push(data.Search);
       console.log(data.Search);
     });
-  }
-  /**
-   * Unsubscribe of Service Movie
-   *
-   * @memberof ListProductComponent
-   */
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
   /**
    * Filter Movies by Genre

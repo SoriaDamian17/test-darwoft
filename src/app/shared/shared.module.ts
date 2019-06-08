@@ -6,6 +6,7 @@ import { SearchComponent } from './components/search/search.component';
 import { IsotopeComponent } from './components/isotope/isotope.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { RouterModule } from '@angular/router';
+import { JumbotronComponent } from './components/jumbotron/jumbotron.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
     CardComponent,
     SearchComponent,
     IsotopeComponent,
-    PaginationComponent
+    PaginationComponent,
+    JumbotronComponent
   ],
   imports: [
     CommonModule,
