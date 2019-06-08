@@ -1,0 +1,31 @@
+.title {
+  color: #FFFFFF;
+
+  small {
+    position: relative;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: 300;
+    letter-spacing: 3px;
+    &::before, &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      display: inline-block;
+      width: 100px;
+      border-bottom: 2px solid #fff;
+    }
+    &::before {
+      left: -120px;
+    }
+    &::after {
+      right: -120px;
+    }
+  }
+  span {
+    display: block;
+    text-transform: uppercase;
+    line-height: 1.3;
+  }
+}
