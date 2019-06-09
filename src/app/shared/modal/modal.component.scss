@@ -1,0 +1,48 @@
+$ui-color-black: #000000;
+$ui-color-white: #FFFFFF;
+
+.box-container {
+  background-color: $ui-color-black;
+  height: 100%;
+  left: 0;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  .dialog {
+    background: $ui-color-white;
+    border-radius: 5px;
+    left: 50%;
+    margin: -200px 0 0 -200px;
+    max-width: 460px;
+    position: relative;
+    top: 45%;
+    width: 100%;
+
+    &--header {
+      height: 48px;
+      text-align: right;
+    }
+
+    &--footer {
+      clear: both;
+      height: 48px;
+    }
+
+    .close {
+      cursor: pointer;
+      float: right;
+      position: relative;
+      right: 24px;
+      top: 20px;
+      width: 30px;
+    }
+
+    .card {
+      background: $ui-color-white;
+      border: 0;
+      padding: 22px 32px 0 32px;
+    }
+  }
+}
