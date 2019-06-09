@@ -6,6 +6,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { MoviesService } from 'src/app/shared/services/movies.service';
 import { HttpClient } from '@angular/common/http';
 import { ModalComponent } from 'src/app/shared/modal/modal.component';
+import { ModalService } from 'src/app/shared/services/modal.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,6 +22,6 @@ const routes: Routes = [
     CommonModule,
     SharedModule
   ],
-  providers: [HttpClient, MoviesService]
+  providers: [HttpClient, MoviesService, ModalService]
 })
 export class HomeModule { }
