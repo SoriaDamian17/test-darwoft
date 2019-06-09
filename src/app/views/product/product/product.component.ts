@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MoviesService } from 'src/app/shared/services/movies.service';
 import { Subscription } from 'rxjs';
+import { MoviesService } from './../../../shared/services/movies.service';
+import { ModalService } from './../../../shared/services/modal.service';
 
 @Component({
   selector: 'app-product',
@@ -17,6 +18,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   constructor(
     private activatedRoute: ActivatedRoute,
     private movieService: MoviesService,
+    private modalService: ModalService,
     private router: Router
   ) { }
   /**
@@ -39,5 +41,10 @@ export class ProductComponent implements OnInit, OnDestroy {
    */
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  openModal() {
+    this.modalService.open('movie-trailer');
+
   }
 }

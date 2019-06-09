@@ -11,10 +11,11 @@ import { Auth0Service } from './shared/services/auth0.service';
 import { FormsModule } from '@angular/forms';
 
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     AppRoutingModule,

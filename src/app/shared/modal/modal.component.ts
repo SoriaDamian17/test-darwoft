@@ -5,7 +5,8 @@ import { ModalService } from '../services/modal.service';
 
 @Component({
     selector: 'app-modal',
-    templateUrl: './modal.component.html'
+    templateUrl: './modal.component.html',
+    styleUrls: ['./modal.component.scss']
 })
 
 export class ModalComponent implements OnInit, OnDestroy {
@@ -53,6 +54,6 @@ export class ModalComponent implements OnInit, OnDestroy {
     }
 
     closeModal() {
-        this.modalService.close(CONFIG.modal);
+        this.modalService.close(this.id);
     }
 }
