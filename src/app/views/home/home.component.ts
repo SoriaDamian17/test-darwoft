@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from 'src/app/shared/services/movies.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ModalComponent } from 'src/app/shared/modal/modal.component';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +15,6 @@ export class HomeComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private movieService: MoviesService,
-    private modalService: ModalComponent,
     private router: Router
   ) { }
 

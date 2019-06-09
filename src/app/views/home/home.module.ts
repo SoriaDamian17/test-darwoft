@@ -15,13 +15,12 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     HomeComponent,
-    ModalComponent
   ],
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
     SharedModule
   ],
-  providers: [HttpClient, MoviesService, ModalService]
+  providers: [HttpClient, MoviesService]
 })
 export class HomeModule { }
