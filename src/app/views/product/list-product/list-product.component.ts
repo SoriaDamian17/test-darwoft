@@ -1,7 +1,6 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesService } from 'src/app/shared/services/movies.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-list-product',
@@ -26,6 +25,9 @@ export class ListProductComponent implements OnInit {
     });
     this.movieService.getMovies(this.page).subscribe((data: any) => {
       this.items.push(data.Search);
+      setTimeout(() => {
+        this.movieService.loading.next(false);
+      }, 1000);
       console.log(data.Search);
     });
   }
