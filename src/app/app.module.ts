@@ -11,10 +11,12 @@ import { Auth0Service } from './shared/services/auth0.service';
 import { FormsModule } from '@angular/forms';
 
 import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { ModalService } from './shared/services/modal.service';
+
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -24,7 +26,7 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
     ToastrModule.forRoot(),
     HttpClientModule
   ],
-  providers: [Auth0Service, ToastrService, MoviesService],
+  providers: [Auth0Service, ToastrService, MoviesService, ModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
