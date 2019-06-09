@@ -26,8 +26,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.movieService.loading.subscribe(() => {
-      this.loading = true;
+    this.movieService.loading.subscribe((data: boolean) => {
+      console.log('loading subscription:', data);
+      this.loading = data;
     });
   }
 }

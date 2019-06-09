@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesService } from 'src/app/shared/services/movies.service';
-import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-list-product',
@@ -10,7 +9,6 @@ import { Subject } from 'rxjs';
 })
 export class ListProductComponent implements OnInit {
 
-  loading = new Subject();
   items: any = [];
   page: number;
 
@@ -27,7 +25,9 @@ export class ListProductComponent implements OnInit {
     });
     this.movieService.getMovies(this.page).subscribe((data: any) => {
       this.items.push(data.Search);
-      this.loading.next(false);
+      setTimeout(() => {
+        this.movieService.loading.next(false);
+      }, 1000);
       console.log(data.Search);
     });
   }
