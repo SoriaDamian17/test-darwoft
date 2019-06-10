@@ -1,31 +1,31 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { SharedModule } from './shared/shared.module';
+import { MoviesService } from './shared/services/movies.service';
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule,
-        SharedModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  }));
+
+  let component: AppComponent;
+  let service: MoviesService;
+
+  beforeEach(() => {
+    service = new MoviesService(null);
+    component = new AppComponent(null, service);
+  });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
   it(`should have as title 'darwoft'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('darwoft');
+    expect(component.title).toEqual('darwoft');
+  });
+
+  it('should be show loading is true', () => {
+    let isLoading = false;
+    service.loading.subscribe( (data: boolean) => {
+      isLoading = data;
+    });
+    service.loading.next(true);
+    expect(isLoading).toBe(true);
   });
 
 });

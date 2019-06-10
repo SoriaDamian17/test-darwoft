@@ -2,3 +2,15 @@
 body {
   font-family: 'Roboto Slab', serif;
 }
+
+hr {
+  width: 100px;
+  display: inline-block;
+  border-bottom: 2px solid #b7b7b7;
+  border-top: none;
+  margin-bottom: 30px;
+}
+
+.bg-blog {
+  background-image: url('./assets/images/blog-1.jpg');
+}

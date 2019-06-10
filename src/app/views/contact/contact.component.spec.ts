@@ -1,29 +1,16 @@
 import { ContactComponent } from './contact.component';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { NotificationService } from 'src/app/shared/services/notification.service';
-import { TestBed, ComponentFixture, async } from '@angular/core/testing';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { ToastrService, ToastrModule } from 'ngx-toastr';
-import { RouterTestingModule } from '@angular/router/testing';
+import { EMPTY } from 'rxjs';
 
 describe('ContactComponent', () => {
 
   let component: ContactComponent;
-  let fixture: ComponentFixture<ContactComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ContactComponent ],
-      imports: [ RouterTestingModule, ReactiveFormsModule, ToastrModule.forRoot(), SharedModule ],
-      providers: [NotificationService, ToastrService]
-    })
-    .compileComponents();
-  }));
+  let service: NotificationService;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ContactComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    service = new NotificationService(null);
+    component = new ContactComponent(new FormBuilder(), service);
   });
 
   it('should create', () => {
@@ -32,17 +19,16 @@ describe('ContactComponent', () => {
 
   describe('Form Validations', () => {
 
-    it('Form Create', () => {
-      expect(component.formGroup).toBe(undefined);
+    beforeEach(() => {
       component.buildForm();
+    });
+
+    it('Form Create', () => {
       expect(component.formGroup).toBeTruthy();
     });
 
     it('Deberiamos crear el formulario con un campo', () => {
-      component.buildForm();
-      const form = component.formGroup;
-
-      expect(form.contains('firtsname')).toBeTruthy();
+      expect(component.formGroup.contains('firstname')).toBeTruthy();
     });
 
     it('Todo los campos deberian ser obligatorios', () => {
@@ -67,6 +53,55 @@ describe('ContactComponent', () => {
       expect(control.valid).toBe(false);
     });
 
+    it('Should be send message when form is complete', () => {
+        const firstname = component.formGroup.get('firstname');
+        firstname.setValue('Damian');
+
+        const lastname = component.formGroup.get('lastname');
+        lastname.setValue('Soria');
+
+        const email = component.formGroup.get('email');
+        email.setValue('damian.soria.web@gmail.com');
+
+        const phone = component.formGroup.get('phone');
+        phone.setValue('3512442105');
+
+        const message = component.formGroup.get('message');
+        message.setValue('hola');
+
+        const spy = spyOn(service, 'showSuccess').and.callFake(() => {
+          return EMPTY;
+        });
+        component.sendMessage();
+        expect(component.formGroup.valid).toBe(true);
+        expect(spy).toHaveBeenCalled();
+    });
+
+    it('Should be error message when form is incomplete', () => {
+      const firstname = component.formGroup.get('firstname');
+      firstname.setValue('Damian');
+
+      const lastname = component.formGroup.get('lastname');
+      lastname.setValue('Soria');
+
+      // Empty value;
+      const email = component.formGroup.get('email');
+      email.setValue('');
+
+      const phone = component.formGroup.get('phone');
+      phone.setValue('3512442105');
+
+      const message = component.formGroup.get('message');
+      message.setValue('hola');
+
+      const spy = spyOn(service, 'showError').and.callFake(() => {
+        return EMPTY;
+      });
+      component.sendMessage();
+      expect(component.formGroup.valid).toBe(false);
+      expect(spy).toHaveBeenCalled();
+    });
   });
+
 
 });
