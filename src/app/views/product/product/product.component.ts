@@ -28,10 +28,11 @@ export class ProductComponent implements OnInit, OnDestroy {
    */
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log(this.id);
     this.movieService.getMovie(this.id).subscribe((data: any) => {
-      console.log(data);
       this.item.push(data);
+      setTimeout(() => {
+        this.movieService.loading.next(false);
+      }, 1000);
     });
   }
   /**
