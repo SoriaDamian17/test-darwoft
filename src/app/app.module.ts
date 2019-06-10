@@ -8,7 +8,7 @@ import { NotFoundComponent } from './views/not-found/not-found.component';
 import { MoviesService } from './shared/services/movies.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Auth0Service } from './shared/services/auth0.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { NgxLoadingModule } from 'ngx-loading';
@@ -23,6 +23,7 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     SharedModule,
     ToastrModule.forRoot(),
     HttpClientModule,

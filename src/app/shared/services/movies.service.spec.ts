@@ -3,10 +3,22 @@ import { TestBed } from '@angular/core/testing';
 import { MoviesService } from './movies.service';
 
 describe('MoviesService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+
+  let service: MoviesService;
+
+  beforeEach(() => {
+    service = new MoviesService(null);
+  });
 
   it('should be created', () => {
-    const service: MoviesService = TestBed.get(MoviesService);
     expect(service).toBeTruthy();
   });
+
+  it('Shoul be return json movies', () => {
+    const spy = spyOn(service, 'getMovies').and.callFake(() => {
+
+    });
+
+  });
+
 });

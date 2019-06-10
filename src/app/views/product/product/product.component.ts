@@ -46,6 +46,5 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   openModal() {
     this.modalService.open('movie-trailer');
-
   }
 }
