@@ -1,1 +1,6 @@
 <router-outlet></router-outlet>
+<div class="">
+  <ngx-loading [show]="loading"
+  [config]="{animationType: ngxLoadingAnimationTypes.circle, primaryColour: primaryColour, secondaryColour: secondaryColour, backdropBorderRadius: '3px'}">
+  </ngx-loading>
+</div>

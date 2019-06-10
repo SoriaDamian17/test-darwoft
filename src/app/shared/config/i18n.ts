@@ -24,9 +24,10 @@ export const i18n = {
     addToCar: 'Add to Car'
   },
   input: {
+    firstname: 'Firstname',
+    lastname: 'Lastname',
+    phone: 'Phone',
     email: 'Email',
-    reTryEmail: 'Repetir email',
-    dniEmail: 'DNI o email',
-    password: 'Clave'
+    message: 'Message'
   }
 };

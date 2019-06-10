@@ -5,6 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MoviesService } from 'src/app/shared/services/movies.service';
 import { HttpClient } from '@angular/common/http';
+import { ModalComponent } from 'src/app/shared/modal/modal.component';
+import { ModalService } from 'src/app/shared/services/modal.service';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,7 +14,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     RouterModule.forChild(routes),
