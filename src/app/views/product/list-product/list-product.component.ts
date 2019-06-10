@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesService } from 'src/app/shared/services/movies.service';
-import { LocalStorageService } from 'ngx-localstorage';
 
 @Component({
   selector: 'app-list-product',
@@ -15,7 +14,6 @@ export class ListProductComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private storageService: LocalStorageService,
     private movieService: MoviesService,
     private router: Router
   ) {}
@@ -25,12 +23,12 @@ export class ListProductComponent implements OnInit {
       this.page = params.page;
     });
 
-    if (this.storageService.get('moviesData')) {
-      const storage = this.storageService.get('moviesData');
+    if (sessionStorage.getItem('moviesData')) {
+      const storage = sessionStorage.getItem('moviesData');
       this.items.push(JSON.parse(storage));
     } else {
       this.movieService.getMovies(this.page).subscribe((data: any) => {
-        this.storageService.set('moviesData', JSON.stringify(data.Search));
+        sessionStorage.setItem('moviesData', JSON.stringify(data.Search));
         this.items.push(data.Search);
         setTimeout(() => {
           this.movieService.loading.next(false);

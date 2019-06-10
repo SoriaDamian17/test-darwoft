@@ -7,7 +7,7 @@ export const CONFIG = {
     clientID: 'I1WYc-WqSGIuaC7292pdnYyAuQQTt2DW',
     domain: 'dev-1zkkmzte.auth0.com',
     responseType: 'token id_token',
-    redirectUri: 'http://localhost:3000/callback',
+    redirectUri: 'https://moviesangular.herokuapp.com/',
     scope: 'openid'
   }
 };
