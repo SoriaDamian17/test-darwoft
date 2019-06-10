@@ -13,10 +13,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { NgxLoadingModule } from 'ngx-loading';
 import { SharedModule } from './shared/shared.module';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent,
+    NotFoundComponent
   ],
   imports: [
     AppRoutingModule,
@@ -25,6 +26,7 @@ import { SharedModule } from './shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
+    RouterModule,
     ToastrModule.forRoot(),
     HttpClientModule,
     NgxLoadingModule.forRoot({})

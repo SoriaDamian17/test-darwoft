@@ -4,6 +4,9 @@
     <div class="col-md-12">
       <app-isotope (genero)="filterMovies($event)"></app-isotope>
     </div>
+    <div class="col-md-12 text-right">
+      <app-dropdown></app-dropdown>
+    </div>
     <div class="col-md-3" *ngFor="let item of items[0];" style="width: 30rem;">
       <app-card [item]="item" (emitViewDetail)="ViewDetail($event)"></app-card>
     </div>
