@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesService } from 'src/app/shared/services/movies.service';
+import { LocalStorageService } from 'ngx-localstorage';
 
 @Component({
   selector: 'app-list-product',
@@ -14,6 +15,7 @@ export class ListProductComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
+    private storageService: LocalStorageService,
     private movieService: MoviesService,
     private router: Router
   ) {}
@@ -21,15 +23,20 @@ export class ListProductComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params => {
       this.page = params.page;
-      console.log(this.page); // popular
     });
-    this.movieService.getMovies(this.page).subscribe((data: any) => {
-      this.items.push(data.Search);
-      setTimeout(() => {
-        this.movieService.loading.next(false);
-      }, 1000);
-      console.log(data.Search);
-    });
+
+    if (this.storageService.get('moviesData')) {
+      const storage = this.storageService.get('moviesData');
+      this.items.push(JSON.parse(storage));
+    } else {
+      this.movieService.getMovies(this.page).subscribe((data: any) => {
+        this.storageService.set('moviesData', JSON.stringify(data.Search));
+        this.items.push(data.Search);
+        setTimeout(() => {
+          this.movieService.loading.next(false);
+        }, 1000);
+      });
+    }
   }
   /**
    * Filter Movies by Genre
@@ -40,9 +47,7 @@ export class ListProductComponent implements OnInit {
   filterMovies(filter: string) {
     this.items = [];
     this.movieService.search(filter).subscribe((data: any) => {
-      console.log(data);
       this.items.push(data.Search);
-      console.log(data.Search);
     });
   }
   /**
@@ -52,7 +57,6 @@ export class ListProductComponent implements OnInit {
    * @memberof ListProductComponent
    */
   goPage(pageLink: number) {
-    console.log(pageLink);
     this.router.navigate(['/product'], { queryParams: { page: pageLink }});
   }
   /**
@@ -62,7 +66,6 @@ export class ListProductComponent implements OnInit {
    * @memberof ListProductComponent
    */
   ViewDetail(imdbID: string) {
-    console.log(imdbID);
     this.router.navigate([`/product/${imdbID}`]);
   }
 }
