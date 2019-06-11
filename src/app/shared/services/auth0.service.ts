@@ -94,13 +94,6 @@ export class Auth0Service {
   public isAuthenticated(): boolean {
     // Check whether the current time is past the
     // access token's expiry time
-    const expire = Date.now() < this._expiresAt;
-    const accessToken = (localStorage.getItem('accessToken') !== ''
-    ? sessionStorage.getItem('accessToken') : this._accessToken);
-
-    if (expire) {
-       this.renewTokens();
-    }
-    return accessToken && expire;
+    return this._accessToken && Date.now() < this._expiresAt;
   }
 }
