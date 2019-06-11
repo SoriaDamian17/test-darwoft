@@ -8,22 +8,25 @@ import { NotFoundComponent } from './views/not-found/not-found.component';
 import { MoviesService } from './shared/services/movies.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Auth0Service } from './shared/services/auth0.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { NgxLoadingModule } from 'ngx-loading';
 import { SharedModule } from './shared/shared.module';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent,
+    NotFoundComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
     SharedModule,
+    RouterModule,
     ToastrModule.forRoot(),
     HttpClientModule,
     NgxLoadingModule.forRoot({})

@@ -1,25 +1,33 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { HeaderComponent } from './header.component';
+import { Auth0Service } from '../../services/auth0.service';
+import { EMPTY } from 'rxjs';
+import { i18n } from '../../config/i18n';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
-    })
-    .compileComponents();
-  }));
+  let service: Auth0Service;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    service = new Auth0Service(null);
+    component = new HeaderComponent(service);
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Initials elements value', () => {
+    expect(component.title).toBeUndefined();
+    expect(component.subtitle).toBeUndefined();
+    expect(component.i18n).toBe(i18n);
+  });
+
+  it('Deberia abrir login', () => {
+    const spy = spyOn(service, 'login').and.callFake( resp => {
+      return EMPTY;
+    });
+    component.login();
+    expect(spy).toHaveBeenCalled();
+  });
+
 });

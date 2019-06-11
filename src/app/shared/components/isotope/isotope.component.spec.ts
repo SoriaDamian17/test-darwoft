@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { IsotopeComponent } from './isotope.component';
+import { SharedModule } from '../../shared.module';
 
 describe('IsotopeComponent', () => {
   let component: IsotopeComponent;
@@ -8,7 +9,7 @@ describe('IsotopeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ IsotopeComponent ]
+      declarations: [ IsotopeComponent ],
     })
     .compileComponents();
   }));

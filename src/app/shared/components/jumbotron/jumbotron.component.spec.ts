@@ -1,25 +1,18 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { JumbotronComponent } from './jumbotron.component';
 
 describe('JumbotronComponent', () => {
   let component: JumbotronComponent;
-  let fixture: ComponentFixture<JumbotronComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ JumbotronComponent ]
-    })
-    .compileComponents();
-  }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(JumbotronComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    component = new JumbotronComponent();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should be inital elements value', () => {
+    expect(component.title).toBeUndefined();
+    expect(component.subtitle).toBeUndefined();
   });
 });

@@ -1,22 +1,14 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { HomeComponent } from './home.component';
+import { ActivatedRoute } from '@angular/router';
+import { MoviesService } from 'src/app/shared/services/movies.service';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
-    })
-    .compileComponents();
-  }));
+  let service: MoviesService;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    service = new MoviesService(null);
+    component = new HomeComponent(new ActivatedRoute(), service, null);
   });
 
   it('should create', () => {

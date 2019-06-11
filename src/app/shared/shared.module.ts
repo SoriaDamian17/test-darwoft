@@ -7,6 +7,8 @@ import { IsotopeComponent } from './components/isotope/isotope.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { RouterModule } from '@angular/router';
 import { JumbotronComponent } from './components/jumbotron/jumbotron.component';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { JumbotronComponent } from './components/jumbotron/jumbotron.component';
     SearchComponent,
     IsotopeComponent,
     PaginationComponent,
-    JumbotronComponent
+    JumbotronComponent,
+    DropdownComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +29,8 @@ import { JumbotronComponent } from './components/jumbotron/jumbotron.component';
     HeaderComponent,
     CardComponent,
     IsotopeComponent,
-    PaginationComponent
+    PaginationComponent,
+    DropdownComponent
   ]
 })
 export class SharedModule { }

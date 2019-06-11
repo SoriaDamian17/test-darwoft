@@ -20,4 +20,8 @@ export class HeaderComponent {
   login() {
     this.auth0Service.login();
   }
+
+  logout() {
+    this.auth0Service.login();
+  }
 }
