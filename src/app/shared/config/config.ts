@@ -8,6 +8,6 @@ export const CONFIG = {
     domain: 'dev-1zkkmzte.auth0.com',
     responseType: 'token id_token',
     redirectUri: 'https://moviesangular.herokuapp.com/',
-    scope: 'openid'
+    scope: 'openid profile'
   }
 };

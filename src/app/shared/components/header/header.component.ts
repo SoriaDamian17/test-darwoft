@@ -14,14 +14,16 @@ export class HeaderComponent {
   i18n = i18n;
 
   constructor(
-    private auth0Service: Auth0Service
-  ) { }
+    public auth0Service: Auth0Service
+  ) {
+    this.auth0Service.handleAuthentication();
+  }
 
   login() {
     this.auth0Service.login();
   }
 
   logout() {
-    this.auth0Service.login();
+    this.auth0Service.logout();
   }
 }
