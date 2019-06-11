@@ -26,16 +26,18 @@
             <li class="nav-item ml-3" routerLinkActive="active">
               <a class="nav-link" href="https://github.com/SoriaDamian17/test-darwoft"><i class="fa fa-github"></i></a>
             </li>
+<<<<<<< HEAD
             <li class="nav-item ml-3" *ngIf="isAuthenticated" routerLinkActive="active">
               <!-- <a class="nav-link" href="/profile"><i class="fa fa-user"></i></a> -->
+=======
+            <li class="nav-item ml-3" *ngIf="auth0Service.isAuthenticated()" routerLinkActive="active">
+>>>>>>> b68ae5e606fad80659d0d5a9315f42eec3500102
               <a class="btn btn-primary"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-user"></i>
               </a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <div class="card card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
-                  </div>
-                </div>
+                <app-profile></app-profile>
+              </div>
             </li>
             <li class="nav-item ml-3" routerLinkActive="active">
               <a class="nav-link" href="#"><i class="fa fa-search"></i></a>

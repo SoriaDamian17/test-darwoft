@@ -1,13 +1,8 @@
-<div class="panel panel-default profile-area">
-    <div class="panel-heading">
-      <h3>Profile</h3>
-    </div>
-    <div class="panel-body">
-      <img src="{{profile?.picture}}" class="avatar" alt="avatar">
-      <div>
-        <label><i class="glyphicon glyphicon-user"></i> Nickname</label>
-        <h3 class="nickname">{{ profile?.nickname }}</h3>
-      </div>
-      <pre class="full-profile">{{ profile | json }}</pre>
-    </div>
+<div class="card" style="width: 18rem;">
+  <img src="{{profile?.picture}}" class="card-img-top" alt="avatar">
+  <div class="card-body">
+    <h5 class="card-title">{{ profile?.nickname }}</h5>
+    <pre class="full-profile">{{ profile | json }}</pre>
+    <a href="#" class="btn btn-primary">logout</a>
   </div>
+</div>
