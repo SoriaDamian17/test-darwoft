@@ -63,7 +63,6 @@ export class Auth0Service {
   private localLogin(authResult): void {
     // Set the time that the access token will expire at
     const expiresAt = (authResult.expiresIn * 1000) + Date.now();
-    sessionStorage.setItem('accessToken', authResult.accessToken);
     this._accessToken = authResult.accessToken;
     this._idToken = authResult.idToken;
     this._expiresAt = expiresAt;
