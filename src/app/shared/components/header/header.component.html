@@ -16,8 +16,8 @@
               <a class="nav-link" routerLink="/product">Catalog</a>
             </li>
             <li class="nav-item ml-3" routerLinkActive="active">
-              <a class="nav-link" *ngIf="!auth0Service.isAuthenticated()" (click)="login()">Login</a>
-              <a class="nav-link" *ngIf="auth0Service.isAuthenticated()" (click)="logout()">Logout</a>
+              <a class="nav-link" *ngIf="!isAuthenticated" (click)="login()">Login</a>
+              <a class="nav-link" *ngIf="isAuthenticated" (click)="logout()">Logout</a>
             </li>
 
             <li class="nav-item ml-3" routerLinkActive="active">
@@ -26,7 +26,7 @@
             <li class="nav-item ml-3" routerLinkActive="active">
               <a class="nav-link" href="https://github.com/SoriaDamian17/test-darwoft"><i class="fa fa-github"></i></a>
             </li>
-            <li class="nav-item ml-3" *ngIf="auth0Service.isAuthenticated()" routerLinkActive="active">
+            <li class="nav-item ml-3" *ngIf="isAuthenticated" routerLinkActive="active">
               <!-- <a class="nav-link" href="/profile"><i class="fa fa-user"></i></a> -->
               <a class="btn btn-primary"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-user"></i>

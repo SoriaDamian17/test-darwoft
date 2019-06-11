@@ -11,11 +11,15 @@ export class HeaderComponent {
 
   @Input() title: string;
   @Input() subtitle: string;
+  isAuthenticated: boolean;
   i18n = i18n;
 
   constructor(
     private auth0Service: Auth0Service
-  ) { }
+  ) {
+    console.log(this.auth0Service.isAuthenticated());
+    this.isAuthenticated = this.auth0Service.isAuthenticated();
+  }
 
   login() {
     this.auth0Service.login();
