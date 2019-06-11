@@ -17,7 +17,6 @@ export class HeaderComponent {
   constructor(
     public auth0Service: Auth0Service
   ) {
-    console.log(this.auth0Service.isAuthenticated());
     this.auth0Service.handleAuthentication();
   }
 
