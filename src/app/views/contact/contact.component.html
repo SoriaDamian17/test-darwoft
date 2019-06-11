@@ -2,7 +2,10 @@
 <div class="container">
   <div class="row">
     <form [formGroup]="formGroup" (ngSubmit)="sendMessage()" class="m-5 mx-auto">
-        <h1 class="text-center">Contact Us</h1>
+        <div class="text-center">
+          <h1>Contact Us</h1>
+          <hr>
+        </div>
         <div class="form-row mt-5">
           <div class="col">
             <input type="text" id="firstname" formControlName="firstname" class="form-control form-control-lg" [placeholder]="i18n.input.firstname">

@@ -1,0 +1,10 @@
+$ui-color-red: #dc3545;
+.nav-link {
+  font-family: 'Roboto slab';
+  font-weight: bold;
+  padding: 5px 5px 5px 5px;
+}
+.active {
+  background-color: $ui-color-red;
+  border-radius: 3px;
+}

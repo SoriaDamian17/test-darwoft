@@ -8,6 +8,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { RouterModule } from '@angular/router';
 import { JumbotronComponent } from './components/jumbotron/jumbotron.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
     IsotopeComponent,
     PaginationComponent,
     JumbotronComponent,
-    DropdownComponent
+    DropdownComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

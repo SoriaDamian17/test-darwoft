@@ -1,9 +1,19 @@
-<nav aria-label="Page navigation">
+<nav class="nav-page mt-3 mx-auto" aria-label="Page navigation">
   <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#" (click)="goPage(1)">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="/product?page=1">1</a></li>
-    <li class="page-item"><a class="page-link" href="/product?page=2">2</a></li>
-    <li class="page-item"><a class="page-link" href="/product?page=3">3</a></li>
-    <li class="page-item"><a class="page-link" href="#" (click)="goPage(1)">Next</a></li>
+    <li class="page-item">
+      <a [ngClass]="{invisible: currentPage === 1}" class="page-link override-color" [href]="'/product?page='+prevPage">Previous</a>
+    </li>
+    <li class="page-item"  routerLinkActive="active">
+      <a class="page-link override-color" href="/product?page=1">1</a>
+    </li>
+    <li class="page-item" routerLinkActive="active">
+      <a class="page-link override-color" href="/product?page=2">2</a>
+    </li>
+    <li class="page-item" routerLinkActive="active">
+      <a class="page-link override-color" href="/product?page=3">3</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link override-color" [ngClass]="{invisible: currentPage === 3}" [href]="'/product?page='+nextPage">Next</a>
+    </li>
   </ul>
 </nav>
