@@ -58,6 +58,9 @@ export class ListProductComponent implements OnInit {
     this.items = [];
     this.movieService.search(filter).subscribe((data: any) => {
       this.items.push(data.Search);
+      setTimeout(() => {
+        this.movieService.loading.next(false);
+      }, 1000);
     });
   }
 
@@ -74,8 +77,6 @@ export class ListProductComponent implements OnInit {
       }
       return 0;
     });
-    // const sortItems = this.items.sort((a, b) => a.Year.localeCompare(b.Year));
-    console.log(sortItems);
     setTimeout(() => {
       this.items = [];
       this.items.push(sortItems[0]);
