@@ -1,0 +1,35 @@
+<app-header title="Contact Information" subtitle="Get in Touch"></app-header>
+<div class="container">
+  <div class="row">
+    <form [formGroup]="formGroup" (ngSubmit)="sendMessage()" class="m-5 mx-auto">
+        <div class="text-center">
+          <h1>Contact Us</h1>
+          <hr>
+        </div>
+        <div class="form-row mt-5">
+          <div class="col">
+            <input type="text" id="firstname" formControlName="firstname" class="form-control form-control-lg" [placeholder]="i18n.input.firstname">
+          </div>
+          <div class="col">
+            <input type="text" id="lastname" formControlName="lastname" class="form-control form-control-lg" [placeholder]="i18n.input.lastname">
+          </div>
+        </div>
+        <div class="form-row mt-3">
+          <div class="col">
+            <input type="email" id="email" formControlName="email" class="form-control form-control-lg" [placeholder]="i18n.input.email">
+          </div>
+          <div class="col">
+            <input type="phone" id="phone" formControlName="phone" class="form-control form-control-lg" [placeholder]="i18n.input.phone">
+          </div>
+        </div>
+        <div class="form-row mt-3">
+          <div class="col">
+            <textarea class="form-control" formControlName="message" id="message" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="col-12 text-center mt-5">
+            <button type="submit" class="btn btn-outline-danger btn-lg">Send Message</button>
+        </div>
+      </form>
+  </div>
+</div>

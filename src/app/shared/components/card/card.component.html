@@ -1,0 +1,10 @@
+<div class="card">
+  <img [src]="item.Poster" class="card-img-top img-thumbnail" [alt]="item.Title">
+  <div class="card-body">
+    <h5 class="card-title">{{item.Title}}</h5>
+    <p class="card-text">{{item.Year}},{{item.Genre}}</p>
+    <p class="card-price">$25.00</p>
+    <button class="btn btn-outline-danger mr-3">{{i18n.buttons.addToCar}}</button>
+    <button (click)="viewDetail(item.imdbID)" class="btn btn-outline-danger pull-right">View</button>
+  </div>
+</div>
