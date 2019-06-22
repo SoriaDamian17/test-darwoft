@@ -30,7 +30,7 @@ export class MoviesService {
   getMovies(page: number = 0) {
     this.page = (page > 0 ? page : this.page);
     this.loading.next(true);
-    return this.httpClient.get<MOVIE>(`${this.apiUrl}&s=batman&page=${this.page}`);
+    return this.httpClient.get<MOVIE[]>(`${this.apiUrl}&s=batman&page=${this.page}`);
   }
 
   /**
@@ -64,6 +64,6 @@ export class MoviesService {
    */
   search(search: string) {
     this.loading.next(true);
-    return this.httpClient.get<MOVIE>(`${this.apiUrl}&s=${search}`);
+    return this.httpClient.get<MOVIE[]>(`${this.apiUrl}&s=${search}`);
   }
 }
