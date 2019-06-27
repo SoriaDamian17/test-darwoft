@@ -1,6 +1,6 @@
 import { Component, TemplateRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ngxLoadingAnimationTypes, NgxLoadingComponent } from 'ngx-loading';
+import { ngxLoadingAnimationTypes } from 'ngx-loading';
 import { MoviesService } from './shared/services/movies.service';
 
 @Component({
