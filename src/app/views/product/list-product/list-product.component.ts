@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesService } from 'src/app/shared/services/movies.service';
-import { Observable } from 'rxjs';
-import { MOVIE } from 'src/app/shared/models/movie.model';
+import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
   selector: 'app-list-product',
@@ -11,19 +10,22 @@ import { MOVIE } from 'src/app/shared/models/movie.model';
 })
 export class ListProductComponent implements OnInit {
 
-  items$: Observable<MOVIE[]>;
+  items: any = [];
   page: number;
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private movieService: MoviesService,
+    private orderPipe: OrderPipe,
     private router: Router
   ) {}
 
   ngOnInit() {
-    this.activatedRoute.queryParams
-    .subscribe(params => this.updatePage(params.page) );
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.updatePage(params.page);
+    });
   }
+
   /**
    * Update List page
    *
@@ -34,15 +36,18 @@ export class ListProductComponent implements OnInit {
     if (sessionStorage.getItem('moviesData')
     && page === 1) {
       const storage = sessionStorage.getItem('moviesData');
-      this.items$ = JSON.parse(storage);
+      this.items.push(JSON.parse(storage));
     } else {
-      this.items$ = this.movieService.getMovies(page);
-      // sessionStorage.setItem('moviesData', JSON.stringify(this.items$.Search));
-      setTimeout(() => {
-        this.movieService.loading.next(false);
-      }, 1000);
+      this.movieService.getMovies(page).subscribe((data: any) => {
+        sessionStorage.setItem('moviesData', JSON.stringify(data.Search));
+        this.items.push(data.Search);
+        setTimeout(() => {
+          this.movieService.loading.next(false);
+        }, 1000);
+      });
     }
   }
+
   /**
    * Filter Movies by Genre
    *
@@ -50,8 +55,30 @@ export class ListProductComponent implements OnInit {
    * @memberof ListProductComponent
    */
   filterMovies(filter: string) {
-    this.items$ = this.movieService.search(filter);
+    this.items = [];
+    this.movieService.search(filter).subscribe((data: any) => {
+      this.items.push(data.Search);
+    });
+  }
+
+  sortMovies(sort: string) {
+    this.movieService.loading.next(true);
+    const sortItems = this.items.sort((a, b) => {
+      const nameA = a.Title.toLowerCase();
+      const nameB = b.Title.toLowerCase();
+      if (nameA < nameB) {
+          return -1;
+      }
+      if (nameA > nameB) {
+          return 1;
+      }
+      return 0;
+    });
+    // const sortItems = this.items.sort((a, b) => a.Year.localeCompare(b.Year));
+    console.log(sortItems);
     setTimeout(() => {
+      this.items = [];
+      this.items.push(sortItems[0]);
       this.movieService.loading.next(false);
     }, 1000);
   }

@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { ModalService, MoviesService } from './../../../shared/services';
-import { MOVIE } from 'src/app/shared/models/movie.model';
+import { Subscription } from 'rxjs';
+import { MoviesService } from './../../../shared/services/movies.service';
+import { ModalService } from './../../../shared/services/modal.service';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.scss']
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent implements OnInit, OnDestroy {
 
+  private subscription: Subscription;
   id: string;
-  item: Observable<MOVIE>;
+  item: any = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -27,8 +28,20 @@ export class ProductComponent implements OnInit {
    */
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.item = this.movieService.getMovie(this.id);
-    setTimeout(() => this.movieService.loading.next(false), 1000);
+    this.movieService.getMovie(this.id).subscribe((data: any) => {
+      this.item.push(data);
+      setTimeout(() => {
+        this.movieService.loading.next(false);
+      }, 1000);
+    });
+  }
+  /**
+   * unsuscribe del movieService
+   *
+   * @memberof ProductComponent
+   */
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   openModal() {
