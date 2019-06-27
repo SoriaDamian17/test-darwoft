@@ -6,6 +6,7 @@ import { ListProductComponent } from './list-product/list-product.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { Routes, RouterModule } from '@angular/router';
 import { ModalService } from 'src/app/shared/services/modal.service';
+import { OrderModule } from 'ngx-order-pipe';
 
 const routes: Routes = [
   { path: '', component: ListProductComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
-    SharedModule
+    SharedModule,
+    OrderModule
   ],
   providers: [ModalService]
 })
