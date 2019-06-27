@@ -1,24 +1,24 @@
 <app-header title="Product" subtitle="Choose your favorite movie"></app-header>
-<section id="product">
+<section id="product" *ngIf="item | async as movie">
   <div class="container">
     <div class="product mt-5">
       <div class="row justify-content-center mx-auto">
         <div class="col-12 mb-5 text-center">
-          <h1>{{item[0].Title}}</h1>
+          <h1>{{movie.Title}}</h1>
           <hr>
         </div>
         <div class="col-12 col-xl-8">
           <div class="col-6 float-left">
             ​<picture>
-              <img [src]="item[0].Poster" class="img-fluid" [alt]="item[0].Title" />
+              <img [src]="movie.Poster" class="img-fluid" [alt]="movie.Title" />
             </picture>
           </div>
           <div class="col-6 float-left product-detail">
-            <h4>Genre: <span>{{item[0].Genre}}</span></h4>
-            <h4>Release year: <span>{{item[0].Year}}</span></h4>
-            <h4>Running time: <span>{{item[0].Runtime}}</span></h4>
-            <h4>Country: <span>{{item[0].Country}}</span></h4>
-            <h4>Production: <span>{{item[0].Production}}</span></h4>
+            <h4>Genre: <span>{{movie.Genre}}</span></h4>
+            <h4>Release year: <span>{{movie.Year}}</span></h4>
+            <h4>Running time: <span>{{movie.Runtime}}</span></h4>
+            <h4>Country: <span>{{movie.Country}}</span></h4>
+            <h4>Production: <span>{{movie.Production}}</span></h4>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
               Sed velit dignissim sodales ut eu sem integer. Elementum pulvinar etiam non quam lacus suspendisse faucibus interdum.
@@ -35,7 +35,7 @@
       </div>
       <div class="row m-5">
         <div class="col-md-12 text-justify">
-          {{item[0].Plot}}
+          {{movie.Plot}}
         </div>
       </div>
     </div>

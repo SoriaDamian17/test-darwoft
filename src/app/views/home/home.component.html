@@ -8,10 +8,12 @@
     <div class="col-md-12 m-3 text-center">
         <a href="/product" class="btn btn-outline-danger btn-lg mr-3 px-md-5">Show Catalog</a>
     </div>
-    <div class="col-md-3" *ngFor="let item of items[0];let i=index" style="width: 30rem;">
-      <div *ngIf="i < 4">
-        <app-card [item]="item"></app-card>
+    <ng-container *ngIf="items$ | async as movies">
+      <div class="col-md-3" *ngFor="let item of movies.Search;let limit=index" style="width: 30rem;">
+        <div *ngIf="limit < 4">
+          <app-card [item]="item"></app-card>
+        </div>
       </div>
-    </div>
+    </ng-container>
   </div>
 </div>
