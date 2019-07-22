@@ -1,19 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CoreModule } from './core/core.module';
 import { NotFoundComponent } from './views/not-found/not-found.component';
-import { MoviesService } from './shared/services/movies.service';
-import { HttpClientModule } from '@angular/common/http';
-import { Auth0Service } from './shared/services/auth0.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { ToastrModule, ToastrService } from 'ngx-toastr';
-import { NgxLoadingModule } from 'ngx-loading';
-import { SharedModule } from './shared/shared.module';
-import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,17 +12,9 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     AppRoutingModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
-    SharedModule,
-    RouterModule,
-    ToastrModule.forRoot(),
-    HttpClientModule,
-    NgxLoadingModule.forRoot({})
+    CoreModule
   ],
-  providers: [Auth0Service, ToastrService, MoviesService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

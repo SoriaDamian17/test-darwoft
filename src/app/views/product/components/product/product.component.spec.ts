@@ -1,7 +1,7 @@
 import { ProductComponent } from './product.component';
 import { MoviesService } from 'src/app/shared/services/movies.service';
 import { ActivatedRoute } from '@angular/router';
-import { ModalService } from 'src/app/shared/services/modal.service';
+import { ModalService } from 'src/app/shared/modal/modal.service';
 import { EMPTY } from 'rxjs';
 
 describe('ProductComponent', () => {

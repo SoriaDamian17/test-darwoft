@@ -1,7 +1,6 @@
 import { Component, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
-import { CONFIG } from '../config/config';
 import { i18n } from '../config/i18n';
-import { ModalService } from '../services/modal.service';
+import { ModalService } from './modal.service';
 
 @Component({
     selector: 'app-modal',
