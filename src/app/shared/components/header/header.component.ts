@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { i18n } from '../../config/i18n';
-import { Auth0Service } from '../../services/auth0.service';
+import { Auth0Service } from '../../../core/auth/auth0.service';
 
 @Component({
   selector: 'app-header',

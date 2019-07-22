@@ -1,5 +1,5 @@
 import { HeaderComponent } from './header.component';
-import { Auth0Service } from '../../services/auth0.service';
+import { Auth0Service } from '../../../core/auth/auth0.service';
 import { EMPTY } from 'rxjs';
 import { i18n } from '../../config/i18n';
 

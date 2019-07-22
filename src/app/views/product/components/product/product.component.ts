@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { ModalService, MoviesService } from './../../../shared/services';
+import { ModalService, MoviesService } from '../../../../shared/services';
 import { MOVIE } from 'src/app/shared/models/movie.model';
 
 @Component({
