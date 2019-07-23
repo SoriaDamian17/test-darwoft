@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CONFIG } from '../config/config';
+import { CONFIG } from '../../shared/config/config';
 import * as auth0 from 'auth0-js';
 import { Router } from '@angular/router';
 

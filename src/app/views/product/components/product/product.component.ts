@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { MoviesService } from './../../../shared/services/movies.service';
-import { ModalService } from './../../../shared/services/modal.service';
+import { Observable } from 'rxjs';
+import { ModalService, MoviesService } from '../../../../shared/services';
+import { MOVIE } from 'src/app/shared/models/movie.model';
 
 @Component({
   selector: 'app-product',

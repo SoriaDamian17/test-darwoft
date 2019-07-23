@@ -1,12 +1,11 @@
 import { ModalComponent } from './../../shared/modal/modal.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProductComponent } from './product/product.component';
-import { ListProductComponent } from './list-product/list-product.component';
+import { ProductComponent } from './components/product/product.component';
+import { ListProductComponent } from './components/list-product/list-product.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { Routes, RouterModule } from '@angular/router';
-import { ModalService } from 'src/app/shared/services/modal.service';
-import { OrderModule } from 'ngx-order-pipe';
+import { ModalService } from 'src/app/shared/modal/modal.service';
 
 const routes: Routes = [
   { path: '', component: ListProductComponent },
@@ -22,8 +21,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forChild(routes),
     CommonModule,
-    SharedModule,
-    OrderModule
+    SharedModule
   ],
   providers: [ModalService]
 })
